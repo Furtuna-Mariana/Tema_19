@@ -105,6 +105,49 @@
 
 
 
-(function (arg1) {
-    console.log(arg1)
-}('item'))
+// (function (arg1) {
+//     console.log(arg1)
+// }('item'))
+
+
+
+const closure = () => {
+    let x = 0;
+
+    function displayValue () {
+        return x;
+    }
+
+    function addOne () {
+        x++
+    }
+
+    function multiplyByTow ()  {
+        x = x *2
+    }
+
+    function minusOne () {
+        x--
+    }   
+
+    function changeValue (arg) {
+         x = arg
+    }
+
+    return {displayValue, addOne, multiplyByTow, minusOne, changeValue}
+}
+
+const {displayValue, addOne, multiplyByTow, minusOne, changeValue} = closure()
+
+console.log(displayValue())
+addOne()
+console.log(displayValue())
+multiplyByTow()
+console.log(displayValue())
+minusOne()
+console.log(displayValue())
+changeValue(9)
+console.log(displayValue())
+
+
+
